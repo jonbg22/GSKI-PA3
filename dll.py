@@ -109,16 +109,24 @@ class DLL:
         self.current = i
 
     def quick_sort(self,low,high):
-        self.partition(low,high)
-        pi = self.current
-        self.quick_sort(low,pi.prev)
-        self.quick_sort(pi.next,high)
+        if high.next != low:
+            self.partition(low,high)
+            pi = self.current
+            self.quick_sort(low,pi.prev)
+            self.quick_sort(pi.next,high)
 
 
     def sort(self):
         self.quick_sort(self.get_first_node(),self.get_last_node())        
         
         
+    def is_sorted(self):
+        cur = self.head.next
+        while cur.next != self.tail:
+            if cur.data > cur.next.data:
+                return False
+            cur = cur.next
+        return True
 
     def __len__(self):
         return self.size
@@ -145,11 +153,12 @@ if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
     from random import randint
-    for num in randomNumbers(10,1,50):
-        dll.insert(num)
-    print(dll)
-    dll.partition(dll.get_first_node(),dll.get_last_node())
-    print(dll)
-    print(dll.get_value())
+    for _ in range(100):
+        dll.clear()
+        for num in randomNumbers(30,1,100):
+            dll.insert(num)
+        dll.sort()
+        print("Is Sorted?:",dll.is_sorted())
+    
 
 
