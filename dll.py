@@ -97,12 +97,16 @@ class DLL:
         i = low
         self.move_to_pos(0)
         while self.current != high:
-            print("Before Change:",self.current.data, i.data)
+            # print("Before Change:",self.current.data, i.data)
             if self.get_value() <= pivot:
                 self.current.data,i.data = i.data,self.current.data # swaps values
                 i = i.next
-            print("After Change:",self.current.data, i.data)
+            # print("After Change:",self.current.data, i.data)
             self.move_to_next()
+
+        high.data,i.data = i.data,high.data # swaps values
+        
+        self.move_to_pos(0)
 
             
     def sort(self):
@@ -133,7 +137,7 @@ if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
     from random import randint
-    for num in randomNumbers(5,1,100):
+    for num in randomNumbers(3,1,100):
         dll.insert(num)
     print(dll)
     dll.partition(dll.get_first_node(),dll.get_last_node())
