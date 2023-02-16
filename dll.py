@@ -95,7 +95,7 @@ class DLL:
     def partition(self, low, high):
         pivot = high.data
         i = low
-        self.move_to_pos(0)
+        self.current = low
         while self.current != high:
             # print("Before Change:",self.current.data, i.data)
             if self.get_value() <= pivot:
@@ -106,11 +106,19 @@ class DLL:
 
         high.data,i.data = i.data,high.data # swaps values
         
-        self.move_to_pos(0)
+        self.current = i
 
-            
+    def quick_sort(self,low,high):
+        self.partition(low,high)
+        pi = self.current
+        self.quick_sort(low,pi.prev)
+        self.quick_sort(pi.next,high)
+
+
     def sort(self):
-        pass
+        self.quick_sort(self.get_first_node(),self.get_last_node())        
+        
+        
 
     def __len__(self):
         return self.size
@@ -137,10 +145,11 @@ if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
     from random import randint
-    for num in randomNumbers(3,1,100):
+    for num in randomNumbers(10,1,50):
         dll.insert(num)
     print(dll)
     dll.partition(dll.get_first_node(),dll.get_last_node())
     print(dll)
+    print(dll.get_value())
 
 
