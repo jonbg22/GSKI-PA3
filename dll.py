@@ -17,18 +17,20 @@ class DLL:
 
     def insert(self, data):
         new_node = Node(data)
-        if self.current == None:
+        if self.size == 0:
             self.head.next = new_node
             self.tail.prev = new_node
-            self.current = new_node
+            new_node.next = self.tail
             new_node.prev = self.head
-            new_node.next = self.tail
-        elif self.current.next == self.tail:
-            self.tail.prev = new_node
-            new_node.next = self.tail
-            new_node.prev = self.current
-            self.current.next = new_node
             self.current = new_node
+        else:
+            self.current.prev.next = new_node
+            self.current.next.prev = new_node
+            new_node.next = self.current
+            new_node.prev = self.current.prev
+            self.current.prev = new_node
+            self.current = new_node
+
         self.size += 1
             
 
@@ -42,10 +44,10 @@ class DLL:
         else:
             self.current.prev.next = self.current.next
             self.current.next.prev = self.current.prev
-            if self.current.prev == self.head:
-                self.current = self.head.next
-            else:
+            if self.current.next == self.tail:
                 self.current = self.current.prev
+            else:
+                self.current = self.current.next
         self.size -= 1
         
 
@@ -137,8 +139,6 @@ class DLL:
         while cur_node != self.tail:
             ret_str += f"{cur_node.data} "
             cur_node = cur_node.next
-        if ret_str == "":
-            return "List is empty"
         return ret_str
 
 
@@ -153,12 +153,17 @@ if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
     from random import randint
-    for _ in range(100):
-        dll.clear()
-        for num in randomNumbers(30,1,100):
-            dll.insert(num)
-        dll.sort()
-        print("Is Sorted?:",dll.is_sorted())
-    
+    for num in randomNumbers(7,1,20):
+        dll.insert(num)
+    dll.move_to_pos(6)
+    print(dll.get_value())
+    print(dll)
+    dll.remove()
+    print(dll)
+    dll.remove()
+    print(dll)
+    dll.remove()
+    print(dll)
+     
 
 
