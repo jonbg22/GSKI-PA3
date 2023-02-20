@@ -25,7 +25,7 @@ class DLL:
             self.current = new_node
         else:
             self.current.prev.next = new_node
-            self.current.next.prev = new_node
+            # self.current.next.prev = new_node
             new_node.next = self.current
             new_node.prev = self.current.prev
             self.current.prev = new_node
@@ -45,7 +45,7 @@ class DLL:
             self.current.prev.next = self.current.next
             self.current.next.prev = self.current.prev
             if self.current.next == self.tail:
-                self.current = self.current.prev
+                self.current = None
             else:
                 self.current = self.current.next
         self.size -= 1
@@ -71,11 +71,17 @@ class DLL:
         self.current = self.current.prev
 
     def move_to_pos(self, pos):
-        if 0 > self.size or pos > self.size-1:
+        if 0 > self.size or abs(pos) > self.size-1:
             return
-        cur = self.head.next
-        for _ in range(pos):
-            cur = cur.next
+        
+        if pos >= 0:
+            cur = self.head.next
+            for _ in range(pos):
+                cur = cur.next
+        elif pos < 0:
+            cur = self.tail.prev
+            for _ in range(abs(pos)):
+                cur = cur.prev
         self.current = cur 
 
     def clear(self):
@@ -95,23 +101,28 @@ class DLL:
         return self.tail.prev
 
     def partition(self, low, high):
-        pivot = high.data
-        i = low
+        # print("Entered Partition with low:",low.data,"high:",high.data)
+        ind = 0
         self.current = low
-        while self.current != high:
+        while True:
+            # print("Index:",ind)
+            print(self.current.data)
             # print("Before Change:",self.current.data, i.data)
-            if self.get_value() <= pivot:
-                self.current.data,i.data = i.data,self.current.data # swaps values
-                i = i.next
-            # print("After Change:",self.current.data, i.data)
-            self.move_to_next()
+            if self.get_value() <= low.data and self.current != low:
+                val = self.get_value()
+                self.remove()
+                self.current = low
+                self.insert(val)
+            if self.current == high or ind == 50:
+                print("Broke")
+                break
+            self.move_to_pos(ind+1)
+            ind += 1
+        self.current = low
 
-        high.data,i.data = i.data,high.data # swaps values
-        
-        self.current = i
 
     def quick_sort(self,low,high):
-        if high.next != low:
+        if low != high:
             self.partition(low,high)
             pi = self.current
             self.quick_sort(low,pi.prev)
@@ -143,6 +154,7 @@ class DLL:
 
 
 def randomNumbers(amount,low,high):
+    from random import randint
     while amount > 0:
         yield randint(low,high)
         amount -= 1
@@ -152,18 +164,26 @@ def randomNumbers(amount,low,high):
 if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
-    from random import randint
-    for num in randomNumbers(7,1,20):
+    # for num in [6, 3, 1, 14, 17, 1, 10]:
+    for num in randomNumbers(10,1,20):
         dll.insert(num)
-    dll.move_to_pos(6)
+    print(dll)
+    dll.partition(dll.get_first_node(),dll.get_last_node())
+    print(dll)
     print(dll.get_value())
+    # dll.sort()
+    # print(dll)
+
+if __name__ == "__main__" and False:
+    dll = DLL()
+    for item in  ["A","B1","C","A","B2"]:
+        dll.insert(item)
+
     print(dll)
-    dll.remove()
+    dll.partition(dll.get_first_node(),dll.get_last_node())
     print(dll)
-    dll.remove()
-    print(dll)
-    dll.remove()
-    print(dll)
+    print(dll.get_value())
+    
      
 
 

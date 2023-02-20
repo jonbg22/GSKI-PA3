@@ -1,220 +1,92 @@
+
+
+TESTING THE BASIC STUFF
+
    -   current value: None   -   size: 0
-move_to_prev
+A    -   current value: A   -   size: 1
+B A    -   current value: B   -   size: 2
+C B A    -   current value: C   -   size: 3
+D C B A    -   current value: D   -   size: 4
+E D C B A    -   current value: E   -   size: 5
+E D C B A    -   current value: D   -   size: 5
+E D C B A    -   current value: C   -   size: 5
+E D 1 C B A    -   current value: 1   -   size: 6
+E D 2 1 C B A    -   current value: 2   -   size: 7
+E D 2 1 C B A    -   current value: 1   -   size: 7
+E D 2 3 1 C B A    -   current value: 3   -   size: 8
+E D 2 4 3 1 C B A    -   current value: 4   -   size: 9
+E D 2 4 3 1 C B A    -   current value: 2   -   size: 9
+E D VALUE 2 4 3 1 C B A    -   current value: VALUE   -   size: 10
+E D VALUE 2 4 3 1 C B A    -   current value: B   -   size: 10
+E D VALUE 2 4 3 1 C A    -   current value: A   -   size: 9
+E D VALUE 2 4 3 1 C    -   current value: None   -   size: 8
+E D VALUE 2 4 3 1 C    -   current value: None   -   size: 8
+E D VALUE 2 4 3 1 C    -   current value: VALUE   -   size: 8
+E D 2 4 3 1 C    -   current value: 2   -   size: 7
+E D 4 3 1 C    -   current value: 4   -   size: 6
+E D 3 1 C    -   current value: 3   -   size: 5
+E D 3 1 C    -   current value: D   -   size: 5
+E D 3 1 C    -   current value: E   -   size: 5
+E D 3 1 C    -   current value: E   -   size: 5
+E D 3 1 C    -   current value: E   -   size: 5
+E D 3 1 C    -   current value: E   -   size: 5
+E D 3 1 C    -   current value: E   -   size: 5
+D 3 1 C    -   current value: D   -   size: 4
+3 1 C    -   current value: 3   -   size: 3
+3 1 C    -   current value: 1   -   size: 3
+3 1 C    -   current value: C   -   size: 3
+3 1 C    -   current value: C   -   size: 3
+3 1 C    -   current value: C   -   size: 3
+3 1    -   current value: None   -   size: 2
+3 1    -   current value: 3   -   size: 2
+3 1    -   current value: 3   -   size: 2
+3 1    -   current value: 3   -   size: 2
+1    -   current value: 1   -   size: 1
    -   current value: None   -   size: 0
-remove
    -   current value: None   -   size: 0
-remove
    -   current value: None   -   size: 0
-remove
+
+
+TESTING MORE COMPLEX STUFF
+
    -   current value: None   -   size: 0
-remove
+A    -   current value: A   -   size: 1
+B1 A    -   current value: B1   -   size: 2
+C B1 A    -   current value: C   -   size: 3
+A C B1 A    -   current value: A   -   size: 4
+B2 A C B1 A    -   current value: B2   -   size: 5
+A A C B1 B2    -   current value: A   -   size: 5
+A C A C B1 B2    -   current value: C   -   size: 6
+A A C A C B1 B2    -   current value: A   -   size: 7
+first node:  A
+A A C A C B1 B2    -   current value: A   -   size: 7
+A B3 A C A C B1 B2    -   current value: B3   -   size: 8
+A C B3 A C A C B1 B2    -   current value: C   -   size: 9
+last node:  B2
+A C B3 A C A C B1 B2    -   current value: C   -   size: 9
+A C B3 A C A C B1 B2    -   current value: A   -   size: 9
+B5 A C B3 A C A C B1 B2    -   current value: B5   -   size: 10
+B5 A C B3 A C A C B1 B2    -   current value: A   -   size: 10
+A A A B1 B2 C C C B3 B5    -   current value: B2   -   size: 10
+A A A B1 B2 B3 B5 C C C    -   current value: C   -   size: 10
    -   current value: None   -   size: 0
-remove
+B    -   current value: B   -   size: 1
+D B    -   current value: D   -   size: 2
+G D B    -   current value: G   -   size: 3
+T G D B    -   current value: T   -   size: 4
+A T G D B    -   current value: A   -   size: 5
+C A T G D B    -   current value: C   -   size: 6
+B C A T G D B    -   current value: B   -   size: 7
+B C A T G D B    -   current value: C   -   size: 7
+B A T G D B    -   current value: A   -   size: 6
+B T G D B    -   current value: T   -   size: 5
+B G D B    -   current value: G   -   size: 4
+B D B    -   current value: D   -   size: 3
+first node:  B
+B D B    -   current value: D   -   size: 3
+B D B    -   current value: B   -   size: 3
+B D B    -   current value: B   -   size: 3
+D B    -   current value: D   -   size: 2
+last node:  B
+D B    -   current value: D   -   size: 2
    -   current value: None   -   size: 0
-remove
-   -   current value: None   -   size: 0
-remove
-   -   current value: None   -   size: 0
-remove
-   -   current value: None   -   size: 0
-remove
-   -   current value: None   -   size: 0
-remove
-   -   current value: None   -   size: 0
-insert 16
-16   -   current value: 16   -   size: 1
-insert 12
-12 16   -   current value: 12   -   size: 2
-insert 22
-22 12 16   -   current value: 22   -   size: 3
-insert 11
-11 22 12 16   -   current value: 11   -   size: 4
-insert 14
-14 11 22 12 16   -   current value: 14   -   size: 5
-insert 16
-16 14 11 22 12 16   -   current value: 16   -   size: 6
-insert 25
-25 16 14 11 22 12 16   -   current value: 25   -   size: 7
-insert 18
-18 25 16 14 11 22 12 16   -   current value: 18   -   size: 8
-insert 21
-21 18 25 16 14 11 22 12 16   -   current value: 21   -   size: 9
-insert 28
-28 21 18 25 16 14 11 22 12 16   -   current value: 28   -   size: 10
-insert 15
-15 28 21 18 25 16 14 11 22 12 16   -   current value: 15   -   size: 11
-insert 20
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-move_to_prev
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-move_to_prev
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-move_to_prev
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-move_to_prev
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-move_to_pos 0
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 12
-insert 27
-27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 27   -   size: 13
-insert 10
-10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 10   -   size: 14
-insert 10
-10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 10   -   size: 15
-insert 23
-23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 23   -   size: 16
-insert 13
-13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 13   -   size: 17
-insert 22
-22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 22   -   size: 18
-insert 12
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 19
-insert 18
-18 12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 18   -   size: 20
-insert 14
-14 18 12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 14   -   size: 21
-insert 17
-17 14 18 12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 17   -   size: 22
-remove
-14 18 12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 14   -   size: 21
-remove
-18 12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 18   -   size: 20
-remove
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 19
-move_to_pos 11
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 18   -   size: 19
-move_to_next
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 25   -   size: 19
-move_to_next
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 16   -   size: 19
-move_to_next
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 14   -   size: 19
-move_to_next
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 11   -   size: 19
-move_to_pos -2
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 19
-move_to_pos 18
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 16   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 22   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 14   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 25   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 21   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 15   -   size: 19
-move_to_prev
-12 22 13 23 10 10 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 27   -   size: 19
-insert 29
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 29   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 10   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 13   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-move_to_prev
-12 22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 12   -   size: 20
-remove
-22 13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 22   -   size: 19
-remove
-13 23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 13   -   size: 18
-remove
-23 10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 23   -   size: 17
-remove
-10 29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 10   -   size: 16
-remove
-29 27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 29   -   size: 15
-remove
-27 20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 27   -   size: 14
-remove
-20 15 28 21 18 25 16 14 11 22 12 16   -   current value: 20   -   size: 13
-remove
-15 28 21 18 25 16 14 11 22 12 16   -   current value: 15   -   size: 12
-remove
-28 21 18 25 16 14 11 22 12 16   -   current value: 28   -   size: 11
-remove
-21 18 25 16 14 11 22 12 16   -   current value: 21   -   size: 10
-remove
-18 25 16 14 11 22 12 16   -   current value: 18   -   size: 9
-remove
-25 16 14 11 22 12 16   -   current value: 25   -   size: 8
-remove
-16 14 11 22 12 16   -   current value: 16   -   size: 7
-remove
-14 11 22 12 16   -   current value: 14   -   size: 6
-remove
-11 22 12 16   -   current value: 11   -   size: 5
-insert 11
-11 11 22 12 16   -   current value: 11   -   size: 6
-insert 26
-26 11 11 22 12 16   -   current value: 26   -   size: 7
-insert 22
-22 26 11 11 22 12 16   -   current value: 22   -   size: 8
-insert 24
-24 22 26 11 11 22 12 16   -   current value: 24   -   size: 9
-insert 13
-13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 10
-insert 11
-11 13 24 22 26 11 11 22 12 16   -   current value: 11   -   size: 11
-insert 12
-12 11 13 24 22 26 11 11 22 12 16   -   current value: 12   -   size: 12
-remove
-11 13 24 22 26 11 11 22 12 16   -   current value: 11   -   size: 11
-remove
-13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 10
-insert 16
-16 13 24 22 26 11 11 22 12 16   -   current value: 16   -   size: 11
-insert 16
-16 16 13 24 22 26 11 11 22 12 16   -   current value: 16   -   size: 12
-insert 22
-22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 22   -   size: 13
-insert 13
-13 22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 14
-insert 23
-23 13 22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 23   -   size: 15
-insert 24
-24 23 13 22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 24   -   size: 16
-remove
-23 13 22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 23   -   size: 15
-remove
-13 22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 14
-remove
-22 16 16 13 24 22 26 11 11 22 12 16   -   current value: 22   -   size: 13
-remove
-16 16 13 24 22 26 11 11 22 12 16   -   current value: 16   -   size: 12
-remove
-16 13 24 22 26 11 11 22 12 16   -   current value: 16   -   size: 11
-remove
-13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 10
-move_to_prev
-13 24 22 26 11 11 22 12 16   -   current value: 13   -   size: 10
-move_to_pos 6
-13 24 22 26 11 11 22 12 16   -   current value: 22   -   size: 10
-move_to_pos 6
-13 24 22 26 11 11 22 12 16   -   current value: 22   -   size: 10
-remove
-13 24 22 26 11 12 16   -   current value: 11   -   size: 9
-remove
-13 24 22 12 16   -   current value: 22   -   size: 8
-remove
-13 12 16   -   current value: 13   -   size: 7
-remove
-12 16   -   current value: 12   -   size: 6
-remove
-16   -   current value: 16   -   size: 5
-remove
-   -   current value: None   -   size: 4
-remove
