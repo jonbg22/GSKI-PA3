@@ -93,13 +93,10 @@ class DLL:
         return self.tail.prev
 
     def partition(self, low, high):
-        print("Entered Partition with low:",low.data,"high:",high.data)
         if low.next == self.tail or low.next == None:
             return
         cur = low.next
-        flag = False
-        while True:
-            print("CUR:",str(self))
+        while cur != high.next:
             if cur == None:
                 break
             if cur.data < low.data:
@@ -110,8 +107,8 @@ class DLL:
                 moved.next = low
                 moved.prev = low.prev
                 low.prev = moved
-            if cur == high:    
-                break
+                self.size += 1
+                
             cur = cur.next
         self.current = low
 
@@ -135,7 +132,7 @@ class DLL:
 
     def sort(self):
         self.quick_sort(self.get_first_node(),self.get_last_node())    
-        self.current = self.head    
+        self.current = self.head.next  
         
         
     def is_sorted(self):
@@ -177,12 +174,19 @@ if __name__ == "__main__":
     #create tests here if you want
     dll = DLL()
     # for num in [6, 3, 1, 14, 17, 1, 10]: # 10 1 17 14 1 3 6 
-    for num in randomNumbers(10,1,30):
+    for num in randomNumbers(3,1,30):
         dll.insert(num)
     print(dll)
-    # dll.partition(dll.get_first_node(),dll.get_first_node().next.next)
-    dll.sort()
-    print(dll)
+    # dll.partition(dll.get_first_node(),dll.get_last_node())
+    # dll.sort()
+    dll.move_to_prev()
+    print(dll.get_value())
+    dll.move_to_prev()
+    print(dll.get_value())
+    dll.move_to_prev()
+    print(dll.get_value())
+    dll.insert("A")
+    print(dll.get_value())
     
 
     
